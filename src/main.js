@@ -6,6 +6,7 @@ import router from './router'
 import fontawesome from '@fortawesome/fontawesome'
 import regular from '@fortawesome/fontawesome-free-regular'
 import solid from '@fortawesome/fontawesome-free-solid'
+import store from './store'
 
 fontawesome.library.add(regular)
 fontawesome.library.add(solid)
@@ -16,6 +17,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
