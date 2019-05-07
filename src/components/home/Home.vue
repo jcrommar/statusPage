@@ -22,16 +22,20 @@
         > 
         <SiteStatus :site="site"></SiteStatus>
       </div>
+      <div class="calendar">
+          <HistoryPart />
       </div>
+    </div>
   </div>
 </template>
 
 <script>
-import IncidentListItem from './IncidentListItem.vue'
-import SiteStatus from './SiteStatus.vue'
+import IncidentListItem from './IncidentListItem'
+import SiteStatus from './SiteStatus'
+import HistoryPart from './HistoryPart'
 export default {
   name: 'Home',
-  components: {IncidentListItem, SiteStatus},
+  components: {IncidentListItem, SiteStatus, HistoryPart},
   data () {
       return {
         openIncidents: [{'id': 1, 'title': 'Connectivity Issues', update_set: [{'description': 'We have noticed some connectivity issues', 'date': '2019-02-02 13:00:12', 'status': 'Investigating'}]}],
@@ -45,5 +49,12 @@ export default {
 <style scoped>
 .card.status {
     margin-bottom: 10px;
+}
+.calendar {
+  font-family: Montserrat;
+  font-weight: 300;
+  width: 700px;
+  margin: 30px auto 0px;
+  font-size: 16px;
 }
 </style>
