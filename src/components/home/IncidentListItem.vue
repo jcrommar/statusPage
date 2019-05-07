@@ -2,14 +2,15 @@
     <div>
         <h2>{{incident.title}}</h2>
         <p>{{lastUpdate.description}}</p>
-        <div class="half">{{lastUpdate.date | timeAgo}}</div><div class="half right">Status: {{lastUpdate.status}}</div>
+        <div class="half">{{incident.date | timeAgo}}</div><div class="half right">Status: {{lastUpdate.status}}</div>
     </div>    
 </template>
 
 <script>
-import moment from 'moment'
+import { timeFormatter } from '@/mixins/DateTimeFilters'
 export default {
     name: 'Incident',
+    mixins: [timeFormatter],
     props: {
         incident: Object
     },
@@ -17,12 +18,7 @@ export default {
         lastUpdate: function () {
             return this.incident.update_set[0]
         }
-    },
-    filters: {
-        timeAgo (value) {
-            return moment.utc(value).fromNow()
-        }
-    },
+    }
 }
 </script>
 
