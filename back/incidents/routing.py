@@ -1,5 +1,7 @@
 from django.conf.urls import url
+from incidents import consumers
 
 websocket_urlpatterns = [
-	#new urls go in here.
+	# the new urls go in here.
+	url(r'^ws/$', consumers.UpdateConsumer)
 ]
